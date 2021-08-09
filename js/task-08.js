@@ -5,21 +5,20 @@ const controls = {
 }
 const boxes = document.querySelector('#boxes');
 
-function getAmount(event) {
-    const amount = Number(event.currentTarget.value);
-    createBoxes(amount)
+function getAmount() {
+    const amount = Number(controls.inputNumber.value);
+    createBoxes(amount);
 }
 function random() {
   return Math.floor(Math.random() * 256);
 }
 function createBoxes(amount){
-   const startlSize = 30;
-    //const generalSize = startlSize + 10;
+   let startlSize = 30;
     for (let i = 0; i < amount; i++) {
-        const newDiv = document.createElement("div");
-        newDiv.style.backgroundColor = "rgba( ${random()} , ${random()} , ${random()} )";
-        // boxes.firstChild.style.width = `${startlSize}px`;
-        // boxes.firstChild.style.height = `${startlSize}px`;
+        startlSize += 10;
+        const newDiv = `<div style="width: ${startlSize}px; 
+        height: ${startlSize}px; background-color: rgb(${random()}, 
+        ${random()}, ${random()})"></div>`;
          boxes.insertAdjacentHTML('beforeend', newDiv);
        
        
@@ -27,8 +26,7 @@ function createBoxes(amount){
 }
 
 function destroyBoxes() {
-    boxes.removeChild()
+    boxes.innerHTML = '';
 }
- controls.inputNumber.addEventListener('input',getAmount )
-controls.buttonRender.addEventListener('click',createBoxes )
+controls.buttonRender.addEventListener('click',getAmount )
 controls.buttonDestroy.addEventListener('click', destroyBoxes)

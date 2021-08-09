@@ -18,8 +18,10 @@ function makeGallery(images) {
   gallery.classList.add('ul-container');
   
   const markUpString = images.reduce(
-    (string, item) => string + `<li class="li"><img class="image" src="${item.url} alt="${item.alt}" width="280" height="160"></li>`,
-    "");
+    (string, item) => string +
+      `<li class="li">
+      <img class="image" src="${item.url} alt="${item.alt}" width="280" height="160">
+      s</li>`, "");
   gallery.insertAdjacentHTML('afterbegin', markUpString);  
 }
 console.log(makeGallery(images));

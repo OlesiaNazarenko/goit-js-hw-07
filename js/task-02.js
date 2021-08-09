@@ -9,5 +9,9 @@ const ingredients = [
   'Зелень',
   'Приправы',
 ];
-const newItems = ingredients.map((el) => { const newItem = document.createElement("li"); newItem.textContent = el; return newItem });
+const newItems = ingredients.map((el) => {
+  const newItem = document.createElement("li");
+  newItem.textContent = el;
+  return newItem
+});
 ingList.append(...newItems);
