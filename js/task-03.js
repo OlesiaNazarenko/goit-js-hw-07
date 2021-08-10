@@ -21,7 +21,7 @@ function makeGallery(images) {
     (string, item) => string +
       `<li class="li">
       <img class="image" src="${item.url} alt="${item.alt}" width="280" height="160">
-      s</li>`, "");
+      </li>`, "");
   gallery.insertAdjacentHTML('afterbegin', markUpString);  
 }
 console.log(makeGallery(images));
