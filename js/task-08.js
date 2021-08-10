@@ -13,16 +13,20 @@ function random() {
   return Math.floor(Math.random() * 256);
 }
 function createBoxes(amount){
-   let startlSize = 30;
-    for (let i = 0; i < amount; i++) {
-        startlSize += 10;
-        const newDiv = `<div style="width: ${startlSize}px; 
+    let startlSize = 30;
+    if (boxes.children.length > 0) {
+        destroyBoxes();
+    }
+    if (!boxes.children.length) {
+        for (let i = 0; i < amount; i++) {
+            startlSize += 10;
+            const newDiv = `<div style="width: ${startlSize}px; 
         height: ${startlSize}px; background-color: rgb(${random()}, 
         ${random()}, ${random()})"></div>`;
-         boxes.insertAdjacentHTML('beforeend', newDiv);
+            boxes.insertAdjacentHTML('beforeend', newDiv);
        
-       
-     }
+        }
+    }
 }
 
 function destroyBoxes() {
